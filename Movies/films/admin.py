@@ -1,16 +1,23 @@
 from django.contrib import admin
-from .models import Category, Genre, Movie, MovieShots, Actor, Raiting, RaitingStar, Review
+
+from .models.actor import Actor
+from .models.category import Category
+from .models.genre import Genre
+from .models.movie_shots import MovieShots
+from .models.rating import Raiting
+from .models.rating_star import RaitingStar
+from .models.review import Review
+from .models.movie import Movie
 
 # Register your models here.
 
-# admin.site.register(Category)
 admin.site.register(Genre)
-# admin.site.register(Movie)
 admin.site.register(MovieShots)
 admin.site.register(Actor)
 admin.site.register(Raiting)
 admin.site.register(RaitingStar)
 admin.site.register(Review)
+# admin.site.register(Movie)
 
 
 @admin.register(Category)
@@ -24,6 +31,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
     custom_field.short_description = 'Кастомное поле'
 
+
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
     autocomplete_fields = ('category',)
+    save_on_top = True
