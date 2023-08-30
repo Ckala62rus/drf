@@ -18,5 +18,8 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name} ({self.id})'
 
-    # def save(self, *args, **kwargs):
-    #     pass
+    # Перед сохранением мы можем сделать что-то с моделью
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            return super(Category, self).save(*args, **kwargs)
+        return super(Category, self).save(*args, **kwargs)
