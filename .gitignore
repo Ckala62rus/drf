@@ -1,0 +1,4 @@
+!.gitignore
+/.idea
+pyvenv.cfg
+mydb
