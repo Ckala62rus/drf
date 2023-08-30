@@ -16,10 +16,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
-
-    @property
-    def custom_field(self):
-        return f"{self.id} ===> {self.name} (поле которого нет в бд)"
+        ordering = ("id",)
 
 
 class Actor(models.Model):

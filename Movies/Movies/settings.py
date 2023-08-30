@@ -27,17 +27,17 @@ INSTALLED_APPS = [
 
 #packages
 INSTALLED_APPS += [
-    'films',
     'rest_framework',
     'django_filters',
     'corsheaders',
+    'djoser',
 ]
 
 # apps
 INSTALLED_APPS += [
     'api',
     'common',
-    'djoser',
+    'films',
 ]
 
 # package for documentation Swagger
