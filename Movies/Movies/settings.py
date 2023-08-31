@@ -15,6 +15,8 @@ ALLOWED_HOSTS = ['*']
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 # PYTHONUNBUFFERED=1;DJANGO_SETTINGS_MODULE=manage; // удалил из настроек отладки в пайчарме
 
+# CSRF_TRUSTED_ORIGINS = ['*']
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

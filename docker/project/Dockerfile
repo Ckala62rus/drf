@@ -21,5 +21,6 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
+
 # COPY ./Docker/project/entrypoint.sh .
 # ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

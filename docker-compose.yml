@@ -6,13 +6,27 @@ services:
     build:
       context: .
       dockerfile: ./docker/project/Dockerfile
-    command: python manage.py runserver localhost:8000
+    command: python manage.py runserver 0.0.0.0:8000
+#    command: gunicorn Movies.wsgi:application --bind 0.0.0.0:8000
     ports:
       - 8000:8000
+#    expose:
+#      - 8000
     volumes:
       - ./Movies:/usr/src/app
     depends_on:
       - db
+
+#  nginx:
+#    build:
+#      context: .
+#      dockerfile: ./docker/nginx/Dockerfile
+#    ports:
+#      - 8000:80
+#    volumes:
+#      - ./Movies:/home/app/web
+#    depends_on:
+#      - backend
 
   db:
     image: postgres:15
