@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+AUTH_USER_MODEL = 'users.User'
+
 #packages
 INSTALLED_APPS += [
     'rest_framework',
@@ -39,6 +41,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'api',
     'common',
+    'users',
     'films',
 ]
 
@@ -92,7 +95,7 @@ WSGI_APPLICATION = 'Movies.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
+        'NAME': 'postgres',
         'USER': 'pguser',
         'PASSWORD': '000000',
         'HOST': 'postgres',
@@ -105,7 +108,7 @@ DATABASES = {
 ###############################
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',
     ),
 
     'DEFAULT_AUTHENTICATION_CLASSES': [

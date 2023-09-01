@@ -23,3 +23,13 @@ delete migration on number igration
 
 show all migrations
 python manage.py showmigrations
+
+
+*******************
+* DOCKER
+*******************
+
+1) вход в контейнер с питоном
+
+   docker exec -ti django_rest /bin/bash
+
