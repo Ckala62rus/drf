@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from .spectacular.urls import urlpatterns as doc_urls
-from Movies.users.urls import urlpatterns as user_urls
+# from Movies.users.urls import urlpatterns as user_urls
+from users.urls import urlpatterns as user_urls # it's work with docker!
 
 app_name = 'api'
 

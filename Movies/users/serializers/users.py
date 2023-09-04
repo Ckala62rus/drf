@@ -2,7 +2,8 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from rest_framework.exceptions import ParseError
 
-from Movies.users.backend import User
+# from Movies.users.backend import User
+from ..backend import User # it's work with docker!
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
