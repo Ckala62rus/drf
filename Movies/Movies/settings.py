@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = ('users.backend.AuthBackend',)
 
 #packages
 INSTALLED_APPS += [
