@@ -8,6 +8,7 @@ class User(AbstractUser, models.Model):
     telegram_id =  models.CharField(
         'Идентификатор телеграмма',
         blank=True,
+        null=True,
         unique=True,
         max_length=255
     )
