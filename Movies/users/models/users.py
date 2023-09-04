@@ -12,6 +12,9 @@ class User(AbstractUser, models.Model):
         max_length=255
     )
 
+    # field for default authentication
+    USERNAME_FIELD = 'username'
+
     objects = CustomUserManager()
 
     class Meta:
