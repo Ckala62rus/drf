@@ -9,20 +9,26 @@ class CustomUserManager(BaseUserManager):
         if email:
             email = self.normalize_email(email)
 
+
+        if not username:
+            if email:
+                username = email
+
         user = self.model(username=username, **extra_fields)
+
         user.email = email
         user.password = make_password(password)
         user.save(using=self._db)
         return user
 
-    def create_user(self, username, email=None, password=None, **extra_fields):
+    def create_user(self, username=None, email=None, password=None, **extra_fields):
         extra_fields.setdefault("is_superuser", False)
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_active", True)
 
         return self._create_user(email, password, username, **extra_fields)
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
+    def create_superuser(self, username=None, email=None, password=None, **extra_fields):
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_active", True)
