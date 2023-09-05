@@ -61,3 +61,37 @@ class ChangePasswordSerializer(serializers.ModelSerializer):
         instance.set_password(password)
         instance.save()
         return instance
+
+
+class MeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        # fields = (
+        #     'id',
+        #     'first_name',
+        #     'last_name',
+        #     'email',
+        #     'date_joined',
+        # )
+        fields = '__all__'
+
+class MeUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+        )
+
+    def update(self, instance, validated_data):
+        instance = super().update(instance, validated_data)
+
+        # тут можно обновлять связи, пример кода:
+        # some_data = ...
+        # relation_name = instance.relation_name
+        # for key, value in some_data:
+        #     if hasattr(rerelation_name, key):
+        #         setattr(rerelation_name, key, value)
+        # rerelation_name.save()
+
+        return instance
