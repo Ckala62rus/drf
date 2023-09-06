@@ -24,6 +24,11 @@ delete migration on number igration
 show all migrations
 python manage.py showmigrations
 
+Проблемы с импортами:
+
+** Если при импорте IDE подчеркивает красным, необходимо сделать следующее:
+нажать на папку проекта и сделать её корневой. В данном проекте - папку Movies
+
 
 *******************
 * DOCKER
