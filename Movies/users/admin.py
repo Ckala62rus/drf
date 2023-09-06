@@ -17,6 +17,12 @@ class UserAdmin(UserAdmin):
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
         (_('Important dates'), {'fields': ('last_login',)}),
+        (
+            'Other',
+            {
+                'fields': ('created_at', 'updated_at',)
+            }
+        )
     )
     add_fieldsets = (
         (None, {
@@ -31,6 +37,5 @@ class UserAdmin(UserAdmin):
     search_fields = ('first_name', 'last_name', 'id', 'email')
     ordering = ('-id',)
     filter_horizontal = ('groups', 'user_permissions',)
-    readonly_fields = ('last_login',)
-
+    readonly_fields = ('last_login', 'created_at', 'updated_at',)
     # inlines = (ProfileAdmin,)
