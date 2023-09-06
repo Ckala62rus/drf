@@ -2,9 +2,10 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from .managers import CustomUserManager
+from common.models.mixins import DateMixin
 
 
-class User(AbstractUser, models.Model):
+class User(AbstractUser, DateMixin):
     telegram_id =  models.CharField(
         'Идентификатор телеграмма',
         blank=True,
