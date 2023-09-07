@@ -10,7 +10,7 @@ project-name\Scripts\activate.bat
 py -m pip install Django
 
 4) create django project
-django-admin startproject project-name
+django-admin startproject config
 
 how to get all dependencies on virtual enviroment and write their to file
 pip freeze > requirements.txt
@@ -37,4 +37,13 @@ python manage.py showmigrations
 1) вход в контейнер с питоном
 
    docker exec -ti django_rest /bin/bash
+
+************************
+* Venv
+************************
+
+pip install virtualenv
+virtualenv venv -p python
+venv/bin/activate
+
 
