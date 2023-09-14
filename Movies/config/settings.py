@@ -44,6 +44,7 @@ INSTALLED_APPS += [
     'common',
     'users',
     'films',
+    'posts',
 ]
 
 # package for documentation Swagger
