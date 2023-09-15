@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from posts.models.post import Post
-from posts.serializers.post import PostGetSerializer
+from posts.serializers.post import PostGetSerializer, PostUpdateSerializer
 
 
 # Create your views here.
@@ -52,3 +52,35 @@ class PostsDeleteView(APIView):
             return Response(f'delete post with id:{id} was deleted')
         except Exception:
             return Response(f'post with id:{id} not found', status=status.HTTP_404_NOT_FOUND)
+
+
+@extend_schema_view(
+        put=extend_schema(
+            summary='Обновить пост',
+            tags=['Посты'],
+            request=PostUpdateSerializer
+        ),
+    )
+class PostsUpdateView(APIView):
+    def put(self, request, id, *args, **kwargs):
+
+        try:
+            post = Post.objects.get(pk=id)
+            serializer = PostUpdateSerializer(data=request.data, instance=post)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({
+                    'post': serializer.data
+                }, status=status.HTTP_200_OK)
+            else:
+                return Response({
+                    'status': False,
+                    'message': 'update post fail',
+                    'post': []
+                })
+        except Exception as e:
+            return Response({
+                'status': False,
+                'message': str(e),
+                'post': []
+            })
